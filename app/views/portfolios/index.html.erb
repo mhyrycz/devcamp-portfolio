@@ -11,6 +11,8 @@
 <p><%= portfolio_item.body%></p>
 <p><%= image_tag portfolio_item.thumb_image if !portfolio_item.thumb_image.nil? %></p>
 <%= link_to "Edit", edit_portfolio_path(portfolio_item.id) %>
+<%= link_to 'Destroy', portfolio_path(portfolio_item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%- #the reason why rails knows which portfolio_path has to be is that after path we add method: delete -%>
 <% end %>
 
 <%- #rake routes prefix: edit_portfolio uri:  /portfolios/:id/edit(.:format) -%>

@@ -1,4 +1,6 @@
-<%= image_tag @portfolio_item.main_image %>
+<%= image_tag @portfolio_item.main_image if !@portfolio_item.main_image.nil?  %>
 <p><%= @portfolio_item.title %></p>
 <em><%= @portfolio_item.subtitle%></em>
 <p><%= @portfolio_item.body%></p>
+
+<%= link_to "Show all portfolio", portfolios_path %>

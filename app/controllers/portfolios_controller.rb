@@ -12,7 +12,7 @@ class PortfoliosController < ApplicationController
 
     respond_to do |format|
       if @portfolio_item.save
-        format.html { redirect_to portfolios_path, notice: 'Your portfolio item is now live.'}
+        format.html { redirect_to @portfolio_item, notice: 'Your portfolio item is now live.'}
         # portfolios_path - back to full list. redirect_to @portfolio_item shows new element
         # added but there has to be show.html.erb also included.
       else
@@ -41,4 +41,14 @@ class PortfoliosController < ApplicationController
     @portfolio_item = Portfolio.find(params[:id])
   end
 
+  def destroy
+    @portfolio_item = Portfolio.find(params[:id]) #defining variable to delete, rails knows already wchich id -MAGIC
+    #DELETE
+    @portfolio_item.destroy
+
+    respond_to do |format|
+      format.html { redirect_to portfolios_url, notice: 'Blog was successfully destroyed.' }
+      # format.json { head :no_content } # usable with api
+      end
+  end
 end
