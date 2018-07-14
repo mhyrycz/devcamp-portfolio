@@ -16,7 +16,7 @@ class PortfoliosController < ApplicationController
 
     respond_to do |format|
       if @portfolio_item.save
-        format.html { redirect_to @portfolio_item, notice: 'Your portfolio item is now live.'}
+        format.html { redirect_to portfolios_path , notice: 'Your portfolio item is now live.'}
         # portfolios_path - back to full list. redirect_to @portfolio_item shows new element
         # added but there has to be show.html.erb also included.
       else
