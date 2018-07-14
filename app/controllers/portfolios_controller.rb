@@ -3,6 +3,10 @@ class PortfoliosController < ApplicationController
     @portfolio_items = Portfolio.all #variable plural
   end
 
+  def angular
+    @angular_portfolio_items = Portfolio.angular #method created at model->portfolio.rb
+  end
+
   def new
     @portfolio_item = Portfolio.new
   end
