@@ -9,10 +9,13 @@ class PortfoliosController < ApplicationController
 
   def new
     @portfolio_item = Portfolio.new
+    3.times {
+     @portfolio_item.technologies.build #whenever i see build def it will create (3) version of  instances of @portfolio_item
+    }
   end
 
   def create
-    @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body))
+    @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
 
     respond_to do |format|
       if @portfolio_item.save
