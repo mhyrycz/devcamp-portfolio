@@ -1,4 +1,13 @@
-<h1>Pages#home</h1>
+<!--<h1>Hi, <%= current_user.first_name if current_user %></h1> course way -->
+<h1>Hi, <%= current_user ? current_user.first_name : "Stranger" %>
+<!-- long version
+  <% if current_user %>
+    <h1>Hi, <%= current_user.first_name %>!</h1>
+  <% elsif %>
+    <h1>Hi, Stranger!</h1>
+  <% end %>
+-->
+<% # "if current_user" has to be added because if current_user is nil -> nil + .method = ERROR W CHUJ %>
 <p>Find me in app/views/pages/home.html.erb</p>
 
 <h1>Posts</h1>
