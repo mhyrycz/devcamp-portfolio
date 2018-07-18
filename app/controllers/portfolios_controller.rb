@@ -15,7 +15,7 @@ class PortfoliosController < ApplicationController
   end
 
   def create
-    @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
+    @portfolio_item = Portfolio.new(portfolio_params)
 
     respond_to do |format|
       if @portfolio_item.save
@@ -36,7 +36,7 @@ class PortfoliosController < ApplicationController
     @portfolio_item = Portfolio.find(params[:id]) #here has to be also cause defined again
     # like in blogs_controller set_blog in before_action
     respond_to do |format|
-      if @portfolio_item.update(params.require(:portfolio).permit(:title, :subtitle, :body))
+      if @portfolio_item.update(portfolio_params)
         format.html { redirect_to portfolios_path, notice: 'Record successfully updated.' }
       else
         format.html { render :edit }
@@ -58,4 +58,15 @@ class PortfoliosController < ApplicationController
       # format.json { head :no_content } # usable with api
       end
   end
+
+private #only for use in that specific class
+
+  def portfolio_params
+    params.require(:portfolio).permit(:title,
+                                      :subtitle,
+                                      :body,
+                                      technologies_attributes: [:name]
+                                      )
+  end
+
 end
