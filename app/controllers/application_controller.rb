@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   include DeviseWhitelist
   include SetSource
+  include CurrentUserConcern
 
 end
 =begin
@@ -14,4 +15,11 @@ end
   end
 
 # before relocation to DeviseWhitelist module
+=end
+
+=begin
+  def current_user #overriding devise method
+   #super ->don't change anything i simply want the same behaviour as method i am overriding
+      super || OpenStruct.new(name: "Guest User", first_name: "Guest", last_name: "User", email: "guest@example.com")
+  end
 =end
