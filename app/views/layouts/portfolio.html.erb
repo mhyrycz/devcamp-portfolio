@@ -20,8 +20,7 @@
 
     <%= yield %>
     <% #yield gives way and allows you to slide in any of the other templates that are being called %>
-    <% if session[:source] %>
-          Thank's for visiting me from <%= session[:source] %>
-    <% end %>
+    <%= source_helper("portfolio") %>
+
   </body>
 </html>
