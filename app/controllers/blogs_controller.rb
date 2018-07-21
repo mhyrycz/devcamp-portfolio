@@ -1,4 +1,5 @@
 class BlogsController < ApplicationController
+
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
   layout "blog"
 
@@ -8,6 +9,7 @@ class BlogsController < ApplicationController
     @blogs = Blog.all
     @page_title = "My portfolio Blog"
   end
+
 
   # GET /blogs/1
   # GET /blogs/1.json

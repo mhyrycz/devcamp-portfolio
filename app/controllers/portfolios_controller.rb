@@ -1,4 +1,5 @@
 class PortfoliosController < ApplicationController
+  before_action :set_portfolio_item, only: [:edit, :update, :show, :destroy]
   layout "portfolio"
 
   def index
@@ -31,12 +32,11 @@ class PortfoliosController < ApplicationController
   end
 
   def edit
-    @portfolio_item = Portfolio.find(params[:id])
-
+    
   end
 
   def update # updated record jumped to the last
-    @portfolio_item = Portfolio.find(params[:id]) #here has to be also cause defined again
+   #here has to be also cause defined again
     # like in blogs_controller set_blog in before_action
     respond_to do |format|
       if @portfolio_item.update(portfolio_params)
@@ -48,11 +48,11 @@ class PortfoliosController < ApplicationController
   end
 
   def show
-    @portfolio_item = Portfolio.find(params[:id])
+
   end
 
   def destroy
-    @portfolio_item = Portfolio.find(params[:id]) #defining variable to delete, rails knows already wchich id -MAGIC
+     #defining variable to delete, rails knows already wchich id -MAGIC
     #DELETE
     @portfolio_item.destroy
 
@@ -60,6 +60,10 @@ class PortfoliosController < ApplicationController
       format.html { redirect_to portfolios_url, notice: 'Blog was successfully destroyed.' }
       # format.json { head :no_content } # usable with api
       end
+
+    def set_portfolio_item
+      @portfolio_item = Portfolio.find(params[:id])
+    end
   end
 
 private #only for use in that specific class
