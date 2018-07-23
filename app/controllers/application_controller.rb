@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
   include DefaultSetTitle
 
 
+
+
 end
 =begin
   before_action :configure_permitted_parameters, if: :devise_controller?

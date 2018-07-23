@@ -1,5 +1,5 @@
 module CurrentUserConcern
-    extend ActiveSupport::Concern
+    extend ActiveSupport::Concern # extend ActiveSupport gem in class concern
 
     def current_user #overriding devise method
      #super ->don't change anything i simply want the same behaviour as method i am overriding
