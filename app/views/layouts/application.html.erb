@@ -13,22 +13,29 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="site-wrapper">
 
-    <%= render "shared/nav", location: 'top' %>
+      <div class="site-wrapper-inner">
 
-    <%= login_helper %>
-    <% #view helper %>
+        <div class="cover-container">
 
-    <%= yield %>
+                <%= render "shared/application_navbar" %>
 
-    <%= @copyright %>
-    <% #yield gives way and allows you to slide in any of the other templates that are being called %>
-    <%= source_helper("application") %>
-    <% #content helper %>
+                <%= login_helper %>
+                <% #view helper %>
 
-    <%= set_copyright %>
+                <%= yield %>
 
+                <%= @copyright %>
+                <% #yield gives way and allows you to slide in any of the other templates that are being called %>
+                <%= source_helper("application") %>
+                <% #content helper %>
+
+                <%= set_copyright %>
+        </div>
+
+      </div>
+
+    </div>
   </body>
 </html>
