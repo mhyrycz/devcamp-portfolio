@@ -1,6 +1,7 @@
 class PortfoliosController < ApplicationController
   before_action :set_portfolio_item, only: [:edit, :update, :show, :destroy]
   layout "portfolio"
+  access all: [:show, :index, :angular], user: {except: [:new, :create, :edit, :update, :destroy]}, site_admin: :all
 
   def index
     @portfolio_items = Portfolio.all #variable plural
@@ -63,11 +64,7 @@ class PortfoliosController < ApplicationController
     end
   end
 
-  def set_portfolio_item
-    @portfolio_item = Portfolio.find(params[:id])
-  end
-
-private #only for use in that specific class
+  private #only for use in that specific class
 
   def set_portfolio_item
     @portfolio_item = Portfolio.find(params[:id])
