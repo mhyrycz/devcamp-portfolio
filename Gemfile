@@ -62,3 +62,5 @@ gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'bootstrap', '~> 4.1.1'
 
 gem 'mach_view_tool', git: 'https://github.com/mhyrycz/mach_view_tool'
+
+gem 'petergate', '~> 1.6', '>= 1.6.3'
