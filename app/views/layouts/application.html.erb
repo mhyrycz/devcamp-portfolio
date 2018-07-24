@@ -21,17 +21,17 @@
 
                 <%= render "shared/application_navbar" %>
 
-                <%= login_helper %>
+
                 <% #view helper %>
 
                 <%= yield %>
 
-                <%= @copyright %>
                 <% #yield gives way and allows you to slide in any of the other templates that are being called %>
                 <%= source_helper("application") %>
                 <% #content helper %>
 
-                <%= set_copyright %>
+                <%= render "shared/application_footer" %>
+
         </div>
 
       </div>
