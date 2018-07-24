@@ -166,13 +166,13 @@ body {
  * Custom styles - overriding styles imported with bootstrap
  */
 
- .card-body {
+.card-body {
     color: black;
     text-align: left;
-
+}
 .auth-links a {
     color: black;
-
-
 }
- }
+.register-text  {
+    text-align: right;
+}
