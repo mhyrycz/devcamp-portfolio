@@ -1,4 +1,4 @@
-<div class='container'>
+<div class='container show-form'>
   <div class='row'>
     <div class='col-md-7'>
       <%= image_tag @portfolio_item.main_image if !@portfolio_item.main_image.nil?  %>
@@ -8,8 +8,8 @@
       <hr>
       <em><%= @portfolio_item.subtitle%></em>
       <p><%= @portfolio_item.body%></p>
-
-      <h3> Used Technologies: </h3>
+      <hr>
+      <h3>Technologies Used:</h3>
       <% @portfolio_item.technologies.each do |t| %>
       <p><%= t.name %></p>
       <% end %>
