@@ -1,8 +1,9 @@
-<h1>portfolio item <h1/>
+<div class="album text-muted">
+  <div class="container">
+    <div class="row">
 
-<%= link_to "Create new item", new_portfolio_url if logged_in?(:site_admin) %>
+    <%= render partial: "portfolio_item", collection: @portfolio_items %>
 
-
-<%= render partial: "portfolio_item", collection: @portfolio_items %>
-
-<%- #rake routes prefix: edit_portfolio uri:  /portfolios/:id/edit(.:format) -%>
+    </div>
+  </div>
+</div>
